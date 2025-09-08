@@ -62,7 +62,25 @@
 
             {{-- Settings start  --}}
 
+
             <li class="menu-title"><span data-key="t-menu">Settings</span></li>
+
+            <li class="nav-item">
+                <a class="nav-link menu-link" href="#sidebarrole" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarrole">
+                    <i class="ri-store-2-line"></i> <span data-key="t-products">role</span>
+                </a>
+                <div class="collapse menu-dropdown" id="sidebarrole">
+                    <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.roles.create') }}" class="nav-link" data-key="t-create"> role Create </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.roles.index') }}" class="nav-link" data-key="t-list"> roles </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
 
             <li class="nav-item">
                 <a class="nav-link menu-link" href="#sidebarSetting" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarSetting">
@@ -80,6 +98,9 @@
                     </ul>
                 </div>
             </li>
+
+
+
 
             {{-- Settings end  --}}
 

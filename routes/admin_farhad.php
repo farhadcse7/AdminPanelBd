@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\Farhad\StatusController;
 use App\Http\Controllers\Backend\Farhad\ProductController;
 use App\Http\Controllers\Backend\Farhad\CategoryController;
 use App\Http\Controllers\Backend\Farhad\DashboardController;
+use App\Http\Controllers\Backend\Farhad\RoleController;
 use App\Http\Controllers\Backend\Farhad\SystemSettingController;
 
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
@@ -42,6 +43,16 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     // Systems routes
     Route::get('system/settings', [SystemSettingController::class, 'edit'])->name('system-settings.edit');
     Route::post('system/settings', [SystemSettingController::class, 'update'])->name('system-settings.update');
+
+
+    // Products routes
+    Route::get('roles', [RoleController::class, 'index'])->name('roles.index');
+    Route::get('roles/create', [RoleController::class, 'create'])->name('roles.create');
+    Route::post('roles', [RoleController::class, 'store'])->name('roles.store');
+    Route::get('roles/{product}', [RoleController::class, 'show'])->name('roles.show');
+    Route::get('roles/{product}/edit', [RoleController::class, 'edit'])->name('roles.edit');
+    Route::put('roles/{product}', [RoleController::class, 'update'])->name('roles.update');
+    Route::delete('roles/{product}', [RoleController::class, 'destroy'])->name('roles.destroy');
 
     //status
     Route::post('/update-status', [StatusController::class, 'update'])->name('status.update');
